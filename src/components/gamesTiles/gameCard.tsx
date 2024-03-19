@@ -7,6 +7,7 @@ function GameCard({ id, title, peopleCount, level, previewImg }: IGameCard): JSX
     const imgAlt = `Game ${title} card`;
     let levelUaText: string;
     const countStr = peopleCount.join('-');
+    const imgPath = `/${previewImg}`;
 
     switch (level) {
         case 'hard':
@@ -20,11 +21,11 @@ function GameCard({ id, title, peopleCount, level, previewImg }: IGameCard): JSX
 
 
     return (
-        <article className="cardTile md:w-4/12 relative rounded-2xl overflow-hidden hover:brightness-110 hover:contrast-110">
+        <article className="cardTile md:w-1/3 relative rounded-2xl overflow-hidden hover:brightness-110 hover:contrast-110">
             <div className="card-image relative">
                 <Image
                     alt={imgAlt}
-                    src={previewImg}
+                    src={imgPath}
                     quality={75}
                     sizes="100%"
                     fill

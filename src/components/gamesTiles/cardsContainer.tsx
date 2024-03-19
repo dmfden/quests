@@ -7,7 +7,7 @@ interface ICardsContainerProps {
 
 function CardsContainer({ cards }: ICardsContainerProps): JSX.Element {
     return (
-        <section className="flex gap-4 lg:gap-6 flex-col md:flex-row">
+        <section className="flex gap-4 lg:gap-[24px] flex-col md:flex-row md:flex-wrap">
             {cards && cards.map((card, index) => <GameCard {...card} key={index} />)}
         </section>
     );
