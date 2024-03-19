@@ -1,0 +1,59 @@
+.container-wrapper {
+    display: grid;
+    grid-template-areas: 'generalArea';
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.bg-image {
+    grid-area: generalArea;
+    z-index: 0;
+}
+.container-content {
+    grid-area: generalArea;
+    z-index: 1;
+}
+
+.app-header {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 132px;
+    z-index: 2;
+    width: 100vw;
+    background: transparent;
+}
+
+.cardTile {
+    display: grid;
+    grid-template-areas: 'cards';
+    min-height: 232px;
+}
+.card-image {
+    grid-area: cards;
+    z-index: 0;
+}
+.card-content {
+    grid-area: cards;
+    z-index: 1;
+}
+
+.gradient-filter {
+    background: linear-gradient(180deg, rgba(141, 80, 8, 0.12) 0%, rgba(236, 242, 244, 0.12) 100%);
+}
+.card-image-filtered {
+    transition: scale 2s ease-in-out;
+}
+.cardTile:hover .card-image-filtered {
+    scale: 1.4;
+}
+
+.cardTile:hover .gradient-filter {
+    background: none;
+}
+@media screen and (min-width: 780px) {
+    .app-header {
+        height: 72px;
+    }
+}
+
