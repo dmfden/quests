@@ -10,7 +10,7 @@ function GameCard({ id, title, peopleCount, level, previewImg }: IGameCard): JSX
     const imgPath = `/${previewImg}`;
 
     return (
-        <article className="cardTile relative rounded-2xl overflow-hidden hover:brightness-110 hover:contrast-110">
+        <article className="cardTile relative rounded-2xl overflow-hidden hover:brightness-150 hover:contrast-110">
             <div className="card-image relative">
                 <Image
                     alt={imgAlt}

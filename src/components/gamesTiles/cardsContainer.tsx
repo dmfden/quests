@@ -1,27 +1,23 @@
 'use client';
-import { IGameCard, IQuest } from "@/types";
+import { IQuest } from "@/types";
 import GameCard from "./gameCard";
 import useAppStore from "@/store";
+import { getAllQuests } from "@/api/quests";
+import { useEffect } from "react";
+import { GAMETYPES } from "@/constants";
 
-interface ICardsContainerProps {
-    cards: IQuest[],
-}
-
-function CardsContainer({ cards }: ICardsContainerProps): JSX.Element {
-    let storeCards = useAppStore((state) => state.quests);
+function CardsContainer(): JSX.Element {
+    const storeCards = useAppStore((state) => state.quests);
     const filter = useAppStore((state) => state.filter);
     const setQuestsToStore = useAppStore((state) => state.setQuests);
     const setQuestsFilter = useAppStore((state) => state.setFilter);
+    let cardsFiltered: IQuest[] = [];
 
-    // console.log('filter = ', filter);
-    if (filter !== 'all') {
-        //storeCards = cards.filter((card) => card.type === filter);
-        setQuestsToStore(cards.filter((card) => card.type === filter));
-    } else {
-        setQuestsToStore(cards);
-    }
+    useEffect(() => {
+        getAllQuests().then((result) => setQuestsToStore(result));
+    }, []);
 
-    const handleClick = (event: React.SyntheticEvent) => {
+    const handleClick = (event: React.SyntheticEvent): void => {
         if (!(event.target instanceof HTMLButtonElement)) {
             return;
         }
@@ -30,20 +26,24 @@ function CardsContainer({ cards }: ICardsContainerProps): JSX.Element {
             targetFilter !== filter ? setQuestsFilter(targetFilter) : '';
 
         }
-        //console.log(event.target.dataset.filter)
     }
 
+    filter === 'all' ? cardsFiltered = [...storeCards] : cardsFiltered = [...storeCards.filter((card) => card.type === filter)];
+    const filterButtonClass = 'filter-button font-bold text-sm text-neutral-250 transition-all duration-700 hover:bg-orange-450 focus:bg-orange-450 hover:text-darkText-200 focus:text-darkText-200';
     return (
         <section>
-            <section>
-                <button data-filter="all" onClick={handleClick}>All</button>
-                <button data-filter="adventures" onClick={handleClick}>adventures</button>
+            <section className="rounded-2xl mb-16">
+                {GAMETYPES.map((gameType, index) => {
+                    console.log(gameType);
+                    let activeClass = '';
+                    gameType === filter ? activeClass = ' active-filter' : false;
+                    return <button data-filter={gameType} onClick={handleClick} className={filterButtonClass + activeClass} key={index}>{gameType}</button>
+                })}
             </section>
             <section className="grid gap-4 lg:gap-[24px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                {storeCards && storeCards.map((card, index) => <GameCard {...card} key={index} />)}
+                {cardsFiltered && cardsFiltered.map((card, index) => <GameCard {...card} key={`${card.title}-${card.id}`} />)}
             </section>
         </section>
-
     );
 }
 

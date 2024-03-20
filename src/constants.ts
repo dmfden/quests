@@ -72,3 +72,5 @@ export const TEXTUA: ITEXTUA = {
     easy: 'простий',
 };
 
+export const GAMETYPES: string[] = ['all', 'adventures', 'horror', 'mystic', 'detective', 'sci-fi'];
+
