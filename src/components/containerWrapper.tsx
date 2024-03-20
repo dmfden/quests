@@ -2,27 +2,17 @@ import Image from "next/image";
 
 interface IContainerProps {
     image?: string,
+    filter: boolean,
     children: React.ReactNode
 }
 
-function ContainerWrapper({ image, children }: IContainerProps): JSX.Element {
-
+function ContainerWrapper({ image, filter, children }: IContainerProps): JSX.Element {
+    let containerClass = "container-content pt-[132px] md:pt-[72px]";
+    filter ? containerClass += " backdrop-brightness-50" : '';
 
     return (
-        <div className="container-wrapper">
-            {image && <Image
-                role="presentation"
-                alt=""
-                src={image}
-                quality={75}
-                sizes="100vw"
-                fill
-                style={{
-                    objectFit: 'fill',
-                }}
-                className="bg-image"
-            />}
-            <div className="container-content pt-[132px] md:pt-[72px]">
+        <div className="container-wrapper bg-auto bg-no-repeat md:bg-cover bg-left" style={{ backgroundImage: `url(${image})` }}>
+            <div className={containerClass}>
                 {children}
             </div>
         </div>

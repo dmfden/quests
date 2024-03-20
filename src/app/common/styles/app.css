@@ -1,8 +1,8 @@
 .container-wrapper {
     display: grid;
     grid-template-areas: 'generalArea';
+    min-height: 100vh;
     width: 100vw;
-    height: 100vh;
     position: relative;
 }
 .bg-image {
@@ -12,6 +12,7 @@
 .container-content {
     grid-area: generalArea;
     z-index: 1;
+    height: 100%;
 }
 
 .app-header {

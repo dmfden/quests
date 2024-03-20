@@ -23,6 +23,9 @@ const config: Config = {
                 yellow: {
                     450: '#FEC432',
                 },
+                darkText: {
+                    100: '#270B00',
+                },
             },
             fontFamily: {
                 sans: ['var(--font-raleway)'],
@@ -30,6 +33,9 @@ const config: Config = {
             content: {
                 personIcon: 'url("/icons/person.svg")',
                 puzzleIcon: 'url("/icons/puzzle.svg")',
+                clockIconY: 'url("/icons/clockY.svg")',
+                personIconY: 'url("/icons/personY.svg")',
+                puzzleIconY: 'url("/icons/puzzleY.svg")',
             },
         },
     },

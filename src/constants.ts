@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { IMenuItems } from './types';
+import { IMenuItems, ITEXTUA } from './types';
 
 export const raleway = localFont({
     src: [
@@ -60,4 +60,15 @@ export const NAVLINKS: IMenuItems[] = [
         text: 'контакти',
     },
 ];
+
+export const TEXTUA: ITEXTUA = {
+    horror: 'жахи',
+    mystic: 'Містика',
+    detective: 'Детектив',
+    adventures: 'Пригоди',
+    'sci-fi': 'Sci-fi',
+    hard: 'складний',
+    medium: 'середній',
+    easy: 'простий',
+};
 

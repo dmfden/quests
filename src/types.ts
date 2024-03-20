@@ -16,10 +16,20 @@ export interface INavigation {
 }
 
 export interface IGameCard {
-    id: string;
+    id: number;
     title: string;
     peopleCount: number[];
     level: string;
     previewImg: string;
 }
 
+export interface IQuest extends IGameCard {
+    description: string;
+    coverImg: string;
+    type: string;
+    duration: number;
+}
+
+export interface ITEXTUA {
+    [key: string]: string;
+}

@@ -1,27 +1,16 @@
 import { IGameCard } from "@/types";
 import Image from "next/image";
-
+import { TEXTUA } from "@/constants";
 
 
 function GameCard({ id, title, peopleCount, level, previewImg }: IGameCard): JSX.Element {
     const imgAlt = `Game ${title} card`;
-    let levelUaText: string;
+    const levelUaText = TEXTUA[level]
     const countStr = peopleCount.join('-');
     const imgPath = `/${previewImg}`;
 
-    switch (level) {
-        case 'hard':
-            levelUaText = 'сложний';
-            break;
-        case 'medium':
-            levelUaText = 'середній';
-            break;
-        default: levelUaText = 'легкий';
-    }
-
-
     return (
-        <article className="cardTile md:w-1/3 relative rounded-2xl overflow-hidden hover:brightness-110 hover:contrast-110">
+        <article className="cardTile relative rounded-2xl overflow-hidden hover:brightness-110 hover:contrast-110">
             <div className="card-image relative">
                 <Image
                     alt={imgAlt}
