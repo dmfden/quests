@@ -3,6 +3,7 @@ import { NAVLINKS } from "@/constants";
 import Image from "next/image";
 
 function Header(): JSX.Element {
+
     return (
         <header className="app-header px-4 md:px-8 flex flex-col md:flex-row gap-3 py-1 md:py-4 md:items-center md:justify-between">
             <div className="w-6 h-6 md:w-[42px] md:h-[42px] relative">

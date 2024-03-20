@@ -62,6 +62,7 @@ export const NAVLINKS: IMenuItems[] = [
 ];
 
 export const TEXTUA: ITEXTUA = {
+    all: 'усі ігри',
     horror: 'жахи',
     mystic: 'Містика',
     detective: 'Детектив',

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { TEXTUA } from "@/constants";
 
 
+
 function GameCard({ id, title, peopleCount, level, previewImg }: IGameCard): JSX.Element {
     const imgAlt = `Game ${title} card`;
     const levelUaText = TEXTUA[level]
