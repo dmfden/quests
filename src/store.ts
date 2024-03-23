@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { IQuest } from './types';
+import { stat } from 'fs';
 
 interface IStore {
     quests: IQuest[];
@@ -10,10 +11,11 @@ interface IStore {
 type Actions = {
     setQuests: (cards: IQuest[]) => void;
     setFilter: (filter: string) => void;
+    getFilteredQuests: (filter: string) => IQuest[];
 };
 
 export const useAppStore = create<IStore & Actions>()(
-    immer((set) => ({
+    immer((set, get) => ({
         quests: [],
         filter: 'all',
         setQuests: (cards: IQuest[]) =>
@@ -24,6 +26,13 @@ export const useAppStore = create<IStore & Actions>()(
             set((state) => {
                 state.filter = filter;
             }),
+        getFilteredQuests: (filter: string) => {
+            const stateQuests = get().quests;
+            if (filter === 'all') {
+                return [...stateQuests];
+            }
+            return stateQuests.filter((quest) => quest.type === filter);
+        },
     }))
 );
 
