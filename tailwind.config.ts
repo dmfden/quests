@@ -26,6 +26,8 @@ const config: Config = {
                 darkText: {
                     100: '#270B00',
                     200: '#514321',
+                    300: '#535353',
+                    400: '#181616',
                 },
             },
             fontFamily: {

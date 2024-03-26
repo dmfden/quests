@@ -33,3 +33,11 @@ export interface IQuest extends IGameCard {
 export interface ITEXTUA {
     [key: string]: string;
 }
+
+export interface IOrderForm {
+    name: string;
+    phone: string;
+    peopleCount: number;
+    isLegal: boolean;
+}
+

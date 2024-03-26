@@ -75,6 +75,70 @@
     animation-name: fadeIn;
     animation-fill-mode: both;
 }
+.form-row {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.form-row input {
+    background-color: rgba(83, 83, 83, 0.4);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px 24px;
+    color: white;
+    border-radius: 6px;
+    transition: all 1s ease-in-out;
+}
+.form-row input:focus {
+    background-color: rgba(83, 83, 83, 0.4);
+}
+
+.form-row input:valid {
+    background-color: rgba(83, 83, 83, 0.4);
+}
+
+.form-row input:-webkit-autofill,
+.form-row input:-webkit-autofill:hover,
+.form-row input:-webkit-autofill:focus,
+.form-row textarea:-webkit-autofill,
+.form-row textarea:-webkit-autofill:hover,
+.form-row textarea:-webkit-autofill:focus,
+.form-row select:-webkit-autofill,
+.form-row select:-webkit-autofill:hover,
+.form-row select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(83, 83, 83, 0.4) inset;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white;
+}
+
+.form-row input.input-error {
+    background-color: rgb(150, 6, 6);
+    color: white;
+    font-weight: 700;
+}
+.form-row span.error {
+    color: red;
+    position: absolute;
+    top: -25px;
+}
+
+.form-order-input {
+    background-color: rgba(83, 83, 83, 0.4);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px 24px;
+    color: white;
+    border-radius: 6px;
+}
+.form-order-input::placeholder {
+    opacity: 0.64;
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
 
 @keyframes fadeIn {
     from {

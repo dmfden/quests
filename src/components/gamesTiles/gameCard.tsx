@@ -4,7 +4,8 @@ import { TEXTUA } from "@/constants";
 
 
 
-function GameCard({ id, title, peopleCount, level, previewImg }: IGameCard): JSX.Element {
+function GameCard({ title, peopleCount, level, previewImg }: IGameCard): JSX.Element {
+
     const imgAlt = `Game ${title} card`;
     const levelUaText = TEXTUA[level]
     const countStr = peopleCount.join('-');
