@@ -33,10 +33,6 @@ export default async function Detailed(params: IDetailedProps) {
     const { searchParams: { showModal } } = params;
     const allQuests = await getAllQuests();
 
-    const openModelHandler = () => {
-        console.log("fire !!!!");
-    }
-
     if (allQuests) {
         const selectedQuest = (allQuests).find((quest) => quest.id.toString() === id);
         if (!selectedQuest) {

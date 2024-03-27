@@ -29,6 +29,9 @@ const config: Config = {
                     300: '#535353',
                     400: '#181616',
                 },
+                darkOverlay: {
+                    100: '#1C1B1B66',
+                },
             },
             fontFamily: {
                 sans: ['var(--font-raleway)'],

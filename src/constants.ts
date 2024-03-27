@@ -56,7 +56,7 @@ export const NAVLINKS: IMenuItems[] = [
         text: 'акціі',
     },
     {
-        url: '#',
+        url: '/contacts',
         text: 'контакти',
     },
 ];

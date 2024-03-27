@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${raleway.variable}`}>
       <body>
+        <link rel="icon" href="/public/favicon.ico" sizes="any" />
         <Header />
         <main>
           {children}

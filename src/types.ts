@@ -37,7 +37,7 @@ export interface ITEXTUA {
 export interface IOrderForm {
     name: string;
     phone: string;
-    peopleCount: number;
+    peopleCount: number | string;
     isLegal: boolean;
 }
 

@@ -2,9 +2,6 @@
 import { IOrderForm } from '@/types';
 
 export default async function gameOrder(formData: IOrderForm) {
-    console.log(formData);
-    console.log(JSON.stringify(formData));
-
     try {
         const response = await fetch('http://localhost:3001/orders/', {
             method: 'POST',

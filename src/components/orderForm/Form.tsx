@@ -4,7 +4,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import validationSchema from "./validationSchema";
 import { IOrderForm } from '@/types';
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import Image from "next/image";
+import FocusTrap from "focus-trap-react";
 
 interface IForm {
     id: string,
@@ -19,7 +21,7 @@ function FormOrder({ id, peopleCount }: IForm): JSX.Element {
     const initialValues = {
         name: "",
         phone: "",
-        peopleCount: 0,
+        peopleCount: "",
         isLegal: true
     };
 
@@ -33,8 +35,16 @@ function FormOrder({ id, peopleCount }: IForm): JSX.Element {
         }
 
     }
-    const formOrder = <div className="max-w-[480px] bg-darkText-400 rounded-[20px] px-8 pb-12">
-        <button>close</button>
+
+    const handleCloseButton = (): void => {
+        router.replace(`/detailed-quest/${id}`);
+    }
+
+    const formOrder = <FocusTrap><div className="max-w-[480px] bg-darkText-400 rounded-[20px] px-8 pb-12">
+        <div className="flex justify-end mb-5 mt-8">
+            <button className="w-[14px] h-[14px] relative" onClick={handleCloseButton}><Image src="/icons/close.svg" alt="Company Logo" fill /></button>
+        </div>
+
         <h3 className="font-extrabold text-[40px] mb-2 text-white">Заявка на гру</h3>
         <Formik
             initialValues={initialValues}
@@ -52,6 +62,7 @@ function FormOrder({ id, peopleCount }: IForm): JSX.Element {
                                     name="name"
                                     id="name"
                                     placeholder="Ваше ім'я"
+                                    autoFocus={true}
                                     className={errors.name && touched.name ?
                                         "input-error" : null}
                                 />
@@ -110,7 +121,7 @@ function FormOrder({ id, peopleCount }: IForm): JSX.Element {
 
                             <button
                                 type="submit"
-                                className="w-max py-[14px] px-11 m-auto text-base font-semibold text-darkText-100 bg-yellow-450 hover:bg-orange-450 rounded-md focus:brightness-200 disabled:bg-gray-500 disabled:bg-gray-500 disabled:opacity-50 transition ease-in-out duration-500"
+                                className="w-max py-[14px] px-11 m-auto text-base font-semibold text-darkText-100 bg-yellow-450 hover:bg-orange-450 rounded-md focus:brightness-200 disabled:bg-gray-500 disabled:opacity-50 transition ease-in-out duration-500"
                                 disabled={!isValid}
                             >
                                 Sign In
@@ -121,7 +132,7 @@ function FormOrder({ id, peopleCount }: IForm): JSX.Element {
                 );
             }}
         </Formik>
-    </div>
+    </div></FocusTrap>
 
     const orderAccepted = <div className="max-w-[480px] bg-darkText-400 rounded-[20px] px-8 pb-12">
         <h3 className="text-yellow-450 text-[54px] p-[60px]">Order Accepted</h3>

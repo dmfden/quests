@@ -9,13 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "focus-trap-react": "^10.2.3",
     "formik": "^2.4.5",
-    "immer": "^10.0.4",
     "next": "14.1.3",
     "react": "^18",
     "react-dom": "^18",
-    "yup": "^1.4.0",
-    "zustand": "^4.5.2"
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
