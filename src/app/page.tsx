@@ -1,4 +1,4 @@
-import { getAllQuests } from "@/api/quests";
+import { getAllQuests } from "@/actions/getAllQuestsAction";
 import ContainerWrapper from "@/components/containerWrapper";
 import GamesFilter from "@/components/gamesFilter";
 import filterGames from "@/components/gamesTiles/filterGames";

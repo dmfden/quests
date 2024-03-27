@@ -1,5 +1,5 @@
 'use client';
-import gameOrder from "@/api/orderAction";
+import gameOrder from "@/actions/orderAction";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import validationSchema from "./validationSchema";
 import { IOrderForm } from '@/types';

@@ -1,10 +1,9 @@
-import { getAllQuests } from "@/api/quests";
+import { getAllQuests } from "@/actions/getAllQuestsAction";
 import ContainerWrapper from "@/components/containerWrapper";
 import GameDetails from "@/components/gameDetails";
 import { notFound } from "next/navigation";
 import ModalWindow from "@/components/modalWindow";
 import Form from "@/components/orderForm/Form";
-
 
 export async function generateStaticParams() {
     const quests = await getAllQuests();
@@ -20,7 +19,6 @@ interface IDetailedProps {
     searchParams: {
         showModal: ModalType
     }
-
 }
 
 enum ModalType {
@@ -32,6 +30,7 @@ export default async function Detailed(params: IDetailedProps) {
     const { params: { id } } = params;
     const { searchParams: { showModal } } = params;
     const allQuests = await getAllQuests();
+
 
     if (allQuests) {
         const selectedQuest = (allQuests).find((quest) => quest.id.toString() === id);
